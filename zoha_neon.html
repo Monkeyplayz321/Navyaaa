@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RGB Love for Navya ❤️</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron:wght@500&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(270deg, #ff0080, #7928ca, #00ffff, #39ff14, #ffcc00, #ff0080);
+      background-size: 1200% 1200%;
+      animation: bgShift 20s ease infinite;
+      overflow: hidden;
+      color: white;
+    }
+
+    @keyframes bgShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      text-align: center;
+      padding: 60px 30px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .love-text {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      background: linear-gradient(90deg, #ff00ff, #00ffff, #39ff14, #ff00ff);
+      background-size: 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbowText 5s linear infinite;
+      text-shadow: 0 0 15px #fff;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes rainbowText {
+      0% { background-position: 0%; }
+      100% { background-position: 300%; }
+    }
+
+    .heart, .tree {
+      width: 180px;
+      margin: 25px auto;
+      animation: glowPulse 2s infinite alternate;
+      filter: drop-shadow(0 0 10px white);
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes glowPulse {
+      0% { filter: drop-shadow(0 0 10px #ff00ff); }
+      100% { filter: drop-shadow(0 0 25px #00ffff); }
+    }
+
+    .message-box {
+      max-width: 700px;
+      margin: 50px auto;
+      font-size: 1.3rem;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 25px;
+      border-radius: 15px;
+      border: 3px solid;
+      border-image: linear-gradient(45deg, #ff00ff, #00ffff, #39ff14, #ff00ff) 1;
+      color: white;
+      text-shadow: 0 0 10px #39ff14;
+      box-shadow: 0 0 25px #00ffff;
+      animation: borderRGB 5s linear infinite;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes borderRGB {
+      0% { box-shadow: 0 0 20px #ff00ff; }
+      50% { box-shadow: 0 0 30px #00ffff; }
+      100% { box-shadow: 0 0 20px #ff00ff; }
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 1rem;
+      text-shadow: 0 0 10px #ff00ff;
+      position: relative;
+      z-index: 2;
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    .neon-btn {
+      padding: 10px 30px;
+      font-size: 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      color: white;
+      background: #f0f;
+      box-shadow: 0 0 20px #f0f, 0 0 40px #0ff;
+    }
+
+    .neon-btn:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .flower-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .flower {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: url('flower.png') no-repeat center center / contain;
+      animation: fall 8s linear infinite;
+      filter: drop-shadow(0 0 8px #ff69b4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- RGB Flower Rain -->
+  <div class="flower-container" id="flower-container"></div>
+
+  <div class="container">
+    <h1 class="love-text">I Love You Navya 💖</h1>
+    <img src="heart.png" alt="heart" class="heart" />
+    <img src="love_tree.png" alt="Love Tree" class="tree" />
+    <div class="message-box" id="message-box">
+      From the very first moment, you lit up my world like RGB lights in a dark room.  
+      <br><br>
+      This isn’t just a webpage... it’s a whole vibe. A pixel-powered confession straight from your hacker Rohit 💻❤️  
+      <br><br>
+      With every drop of a flower and glow of this page, one thing stays true —  
+      <br><br>
+      <strong>Navya, will you be mine forever? 🌈✨</strong>
+    </div>
+
+    <!-- Yes/No Buttons -->
+    <div class="buttons">
+      <button class="neon-btn" onclick="yesClicked()">YES 💍</button>
+      <button class="neon-btn" onclick="noClicked()">NO 🙅‍♀️</button>
+    </div>
+
+    <div class="footer">
+      — Brought to you by Rohit 💿⚡ Hacker of Hearts
+    </div>
+  </div>
+
+  <script>
+    const container = document.getElementById('flower-container');
+    const numberOfFlowers = 50;
+
+    for (let i = 0; i < numberOfFlowers; i++) {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = (6 + Math.random() * 5) + 's';
+      flower.style.opacity = Math.random();
+      flower.style.animationDelay = Math.random() * 5 + 's';
+      container.appendChild(flower);
+    }
+
+    function yesClicked() {
+      const messageBox = document.getElementById('message-box');
+      messageBox.innerHTML = `
+        <strong>YAYYY NAVYA SAID YES!!! 💖💍</strong><br><br>
+        You just made Rohit's entire life brighter than RGB LEDs 😭💞<br>
+        Love mode: Activated. Hacker mode: Deactivated. <br><br>
+        💌 Welcome to your forever... together 🌹✨
+      `;
+    }
+
+    function noClicked() {
+      alert("Excuse me 😤 — Saying NO is not allowed!");
+    }
+  </script>
+</body>
+</html>
